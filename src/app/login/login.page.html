@@ -1,9 +1,20 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Bienvenido al Suertodo!</ion-title>
+    <ion-title>Login</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-item>
+    <ion-label>Email</ion-label>
+    <ion-input [(ngModel)]="userInput.email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Password</ion-label>
+    <ion-input [(ngModel)]="userInput.password"></ion-input>
+  </ion-item>
 
+  <a></a>
+  <ion-button fill="outline" expand="block" style="margin-top:20px;" (click)="goToRegister()">¿Aún no tienes cuenta?</ion-button>
+  <ion-button expand="block" style="margin-top:20px;" (click)="login()">Ingresar</ion-button>
 </ion-content>

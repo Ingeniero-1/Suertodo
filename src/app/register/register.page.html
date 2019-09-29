@@ -5,9 +5,17 @@
 </ion-header>
 
 <ion-content>
-
-  <ion-input [(ngModel)]="userInput.email"></ion-input>
-  <ion-input [(ngModel)]="userInput.passwordd"></ion-input>
-  <ion-input [(ngModel)]="userInput.passwordConfirm"></ion-input>
-  <ion-button>Registrarse</ion-button>
+    <ion-item>
+        <ion-label>Email</ion-label>
+        <ion-input [(ngModel)]="userInput.email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Password</ion-label>
+        <ion-input [(ngModel)]="userInput.password"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label>Password Confirm</ion-label>
+          <ion-input [(ngModel)]="userInput.passwordConfirm"></ion-input>
+        </ion-item>
+  <ion-button expand="block" style="margin-top:30px" (click)="register()">Registrarse</ion-button>
 </ion-content>
