@@ -1,20 +1,20 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Register</ion-title>
+    <ion-title>Registrate</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
     <ion-item>
-        <ion-label>Email</ion-label>
+        <ion-label>Ingresa tu Email</ion-label>
         <ion-input [(ngModel)]="userInput.email"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>Password</ion-label>
+        <ion-label>Ingresa tu Contraseña</ion-label>
         <ion-input [(ngModel)]="userInput.password"></ion-input>
       </ion-item>
       <ion-item>
-          <ion-label>Password Confirm</ion-label>
+          <ion-label>Confirma tu Contraseña</ion-label>
           <ion-input [(ngModel)]="userInput.passwordConfirm"></ion-input>
         </ion-item>
   <ion-button expand="block" style="margin-top:30px" (click)="register()">Registrarse</ion-button>

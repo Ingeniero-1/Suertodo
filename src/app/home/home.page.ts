@@ -84,7 +84,7 @@ export class HomePage {
         alert("El numero generado es " + random + ", y tu numero es " + this.userInput + ": Perdiste!");
       }
       if (this.quantityPerDay == 3) {
-        alert("Adivinaste bien " + this.quantityWins + " veces, y tus puntos totales son: " + this.puntosTotales);
+        alert("Tus puntos totales son: " + this.puntosTotales);
         this.enviarDatos(this.puntosTotales);
       }
 
