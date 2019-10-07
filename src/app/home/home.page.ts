@@ -87,7 +87,6 @@ export class HomePage {
         alert("Tus puntos totales son: " + this.puntosTotales);
         this.enviarDatos(this.puntosTotales);
       }
-
     }
   }
   logout() {
