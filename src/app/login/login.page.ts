@@ -21,4 +21,8 @@ export class LoginPage implements OnInit {
   goToRegister(){
     this.navCtrl.navigateRoot('register');
   }
+  FAQs(){
+    this.navCtrl.navigateRoot('about');
+}
+
 }
