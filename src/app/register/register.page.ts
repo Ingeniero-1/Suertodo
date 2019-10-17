@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase/app';
+import { NavController } from '@ionic/angular';
 import 'firebase/auth';
+
 
 @Component({
   selector: 'app-register',
@@ -9,7 +11,7 @@ import 'firebase/auth';
 })
 export class RegisterPage implements OnInit {
   public userInput={email:"",password:"",passwordConfirm:""}
-  constructor() { }
+  constructor(public navCtrl:NavController) { }
 
   ngOnInit() {
   }
@@ -26,5 +28,9 @@ export class RegisterPage implements OnInit {
     });
     
   }
+  goToLogin(){
+    this.navCtrl.navigateRoot("login");
+  }
+  
 
 }
