@@ -96,7 +96,8 @@ export class HomePage {
 
   enviarDatos(score) {
     this.db.collection("users").doc(firebase.auth().currentUser.uid).set({
-      score:score
+      score:score,
+      email:firebase.auth().currentUser.email
     })
   }
 

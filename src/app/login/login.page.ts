@@ -23,6 +23,9 @@ export class LoginPage implements OnInit {
   }
   FAQs(){
     this.navCtrl.navigateRoot('about');
-}
+``}
+  goToLeaderboard(){
+    this.navCtrl.navigateRoot('leaderboard');
+``}
 
 }
