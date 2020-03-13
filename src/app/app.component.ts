@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 
 import { Platform, NavController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -16,7 +16,8 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    public navCtrl:NavController
+    public navCtrl: NavController,
+    public ngZone: NgZone
   ) {
     this.initializeApp();
     this.checkState();
@@ -28,14 +29,20 @@ export class AppComponent {
       this.splashScreen.hide();
     });
   }
-  checkState(){
-    firebase.auth().onAuthStateChanged((user)=>{
+  checkState() {
+    firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        // User is signed in.
-        this.navCtrl.navigateRoot('home');
+        this.ngZone.run(() => {
+          // User is signed in.
+          this.navCtrl.navigateRoot('home');
+        })
+
       } else {
+        this.ngZone.run(()=>{
         // No user is signed in.
         this.navCtrl.navigateRoot('login');
+        })
+
       }
     });
   }

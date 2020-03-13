@@ -32,20 +32,20 @@
 
   <div *ngIf="radio=='personalizado'">
     <ion-item lines="full">
-      <ion-label position="floating">Decime el numero menor de tu rango:</ion-label>
-      <ion-input type="number" [(ngModel)]="range.min"></ion-input>
+      <ion-label  position="stacked">Decime el numero menor de tu rango:</ion-label>
+      <ion-input placeholder="0" type="number" [(ngModel)]="range.min"></ion-input>
     </ion-item>
 
     <ion-item lines="full">
-      <ion-label position="floating">Decime el numero mayor de tu rango:</ion-label>
-      <ion-input type="number" [(ngModel)]="range.max"></ion-input>
+      <ion-label  position="stacked">Decime el numero mayor de tu rango:</ion-label>
+      <ion-input placeholder="0" type="number" [(ngModel)]="range.max"></ion-input>
     </ion-item>
   </div>
 
   
   <ion-item lines="full">
-    <ion-label position="floating">Elegi un numero en ese Rango!</ion-label>
-    <ion-input type="number" [(ngModel)]="userInput" (ionChange)="checkInteger(userInput)"></ion-input>
+    <ion-label position="stacked">Elegi un numero en ese Rango!</ion-label>
+    <ion-input placeholder="0" type="number" [(ngModel)]="userInput" (ionChange)="checkInteger(userInput)"></ion-input>
   </ion-item>
 
 

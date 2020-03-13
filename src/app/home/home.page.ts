@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import * as firebase from 'firebase';
+import { Component, NgZone } from '@angular/core';
+import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 @Component({
@@ -9,25 +9,29 @@ import 'firebase/firestore';
 })
 export class HomePage {
 
-  public userInput = 0;
+  public userInput = null;
 
   public quantityPerDay = 0;
 
   public quantityWins = 0;
 
-  public range = { min: 0, max: 0 };
+  public range = { min: null, max: null };
 
   public puntosTotales = 0;
   public rangeArray;
   public radio;
   public db = firebase.firestore();
 
-  constructor() {
-    this.rangeArray = [
-      { min: 1, max: 10 },
-      { min: 1, max: 100 },
-      { min: 1, max: 1000 },
-    ]
+  constructor(public ngZone:NgZone) {
+
+    this.ngZone.run(()=>{
+      this.rangeArray = [
+        { min: 1, max: 10 },
+        { min: 1, max: 100 },
+        { min: 1, max: 1000 },
+      ]
+    })
+
   }
 
   numbers(min, max) {
@@ -36,8 +40,11 @@ export class HomePage {
 
   checkInteger(ev) {
     console.log(ev)
-    this.userInput = parseInt(ev.replace(".", ""));
-    this.userInput = parseInt(ev.replace(",", ""));
+    if (ev==null){
+      return null;
+    }
+    this.userInput = parseInt(ev.toString().replace(".", ""));
+    this.userInput = parseInt(ev.toString().replace(",", ""));
   }
 
   play() {
