@@ -9,13 +9,16 @@ import { NavController } from '@ionic/angular';
 })
 export class AboutPage implements OnInit {
 
-  constructor(public navCtrl:NavController) { }
+  constructor(public navCtrl: NavController) { }
 
   ngOnInit() {
   }
 
-  goToLogin(){
+  goToLogin() {
     this.navCtrl.navigateRoot("login");
-}
+  }
+  goToGraphics() {
+this.navCtrl.navigateForward("graficos");
+  }
 
 }

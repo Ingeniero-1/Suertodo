@@ -8,24 +8,29 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  public userInput={email:"",password:""};
-  constructor(public navCtrl:NavController) { }
+  public userInput = { email: "", password: "" };
+  constructor(public navCtrl: NavController) { }
 
   ngOnInit() {
   }
-  login(){
-    firebase.auth().signInWithEmailAndPassword(this.userInput.email,this.userInput.password).catch((error)=>{
+  login() {
+    firebase.auth().signInWithEmailAndPassword(this.userInput.email, this.userInput.password).catch((error) => {
       alert(error.message);
     })
   }
-  goToRegister(){
+  anoLogin(){
+    firebase.auth().signInAnonymously().catch(err=>{
+      alert(err.message);
+    })
+  }
+  goToRegister() {
     this.navCtrl.navigateRoot('register');
   }
-  FAQs(){
+  FAQs() {
     this.navCtrl.navigateRoot('about');
-``}
-  goToLeaderboard(){
+  }
+  goToLeaderboard() {
     this.navCtrl.navigateRoot('leaderboard');
-``}
+  }
 
 }
