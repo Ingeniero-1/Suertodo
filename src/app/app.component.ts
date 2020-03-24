@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
+import 'firebase/firestore';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,9 @@ import 'firebase/auth';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+
+  public db  = firebase.firestore();
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -34,7 +38,19 @@ export class AppComponent {
       if (user) {
         this.ngZone.run(() => {
           // User is signed in.
+          
           this.navCtrl.navigateRoot('home');
+
+
+          // this.db.collection("users").doc(user.uid).get().then(response=>{
+          //   if (response.exists){
+          //     this.navCtrl.navigateRoot('home');
+          //   }else{
+          //     this.navCtrl.navigateRoot('register-ext');
+          //   }
+          // });
+
+
         })
 
       } else {
