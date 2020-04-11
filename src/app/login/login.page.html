@@ -6,7 +6,7 @@
 
 <ion-content>
   <ion-item>
-    <ion-label>Email</ion-label>
+    <ion-label>Ingresa tu Email</ion-label>
     <ion-input type="email" [(ngModel)]="userInput.email"></ion-input>
   </ion-item>
   <ion-item>
@@ -16,7 +16,7 @@
 
   <a></a>
   <ion-button expand="block" style="margin-top:20px;" (click)="login()">Ingresar</ion-button>
-  <ion-button fill="outline" expand="block" style="margin-top:20px;" (click)="goToRegister()">¿Aún no tienes cuenta?</ion-button>
+  <ion-button fill="outline" expand="block" style="margin-top:20px;" (click)="goToRegister()">{{'login.registro' | translate}}</ion-button>
   <ion-button expand="block" style="margin-top:20px;" (click)="FAQs()">Como se juega?</ion-button>
   <ion-button fill="outline" expand="block" style="margin-top:20px;" (click)="goToLeaderboard()">Ver puntajes mas altos</ion-button>
   <ion-button fill="clear" expand="block" style="margin-top:20px;" (click)="anoLogin()">Entrar como invitado</ion-button>

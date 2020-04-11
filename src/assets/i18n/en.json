@@ -1,0 +1,49 @@
+{
+    "about":{
+       "titulo_about": "How to play Suertodo",
+       "lineauno": "You select a range of numbers and then you guess a number in that range.",
+       "lineados": "If you guesses correctly, you win points equal to that range.",
+       "lineatres": "If you lose, nothing happens! You can keep playing.",
+       "lineacuatro": "You get 3 tries per day. After the third, you accumulate all the points.",
+       "lineacinco": "If you are the player with most points on the day, you Win!",
+       "volver": "Go Back",
+       "graficos": "Graphical Explanation"
+    },
+   "graficos":{
+       "titulo_graficos": "Graphical Explanation",
+       "Jugar": "Play" 
+   },
+   "home":{
+       "bienvenido": "Welcome to Suertodo",
+       "logout": "Logout",
+       "rango": "Pick a range:",
+       "personalizado": "Personalized range",
+       "menor": "Choose the lower number of your range",
+       "mayor": "Choose the higher number of your range",
+       "numero_rango": "Pick a number in that range",
+       "Jugar": "Play" 
+   },
+   "leaderboard": {
+       "titulo": "Highscores",
+       "vovler": "Go Back"
+   },
+   "login":{
+       "login": "Login",
+       "email": "Enter your Email",
+       "password": "Enter your Password",
+       "ingresar": "Enter", 
+       "registro": "Register",
+       "how_to_play": "How to Play",
+       "leaderboard": "Highscores",
+       "invitado": "Play as Guest"
+   },
+   "register":{
+       "titulo": "Register",
+       "nombre_de_usuario": "Enter your username",
+       "email": "Enter your Email",
+       "password": "Enter your password",
+       "confirmacion_password": "Confirm your password",
+       "enter": "Create my account!",
+       "vovler": "Go back"
+   }
+}

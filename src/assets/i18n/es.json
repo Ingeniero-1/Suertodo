@@ -1,0 +1,49 @@
+{
+    "about":{
+       "titulo_about": "¿Como jugar al Suertodo?",
+       "lineauno": "Elegis un rango de numeros y adivinas un numero en ese rango.",
+       "lineados": "Si lo adivinas correctamente, ganas puntos igual a tu rango de numeros.",
+       "lineatres": "Si perdes, no pasa nada. Podes seguir jugando.",
+       "lineacuatro": "Tenes 3 intentos, despues es estos, se suman los puntos que acumulaste.",
+       "lineacinco": "Si sos la persona con mas puntos en el dia, ganaste!.",
+       "volver": "Volver",
+       "graficos": "Explicacion Grafica"
+    },
+   "graficos":{
+       "titulo_graficos": "Explicacion Grafica",
+       "Jugar": "Jugar" 
+   },
+   "home":{
+       "bienvenido": "Bienvenido al Suertodo!",
+       "logout": "Salir",
+       "rango": "Elige un rango:",
+       "personalizado": "Rango Personalizado",
+       "menor": "Decime el numero menor de tu rango:",
+       "mayor": "Decime el numero mayor de tu rango:",
+       "numero_rango": "Elegi un numero en ese Rango!",
+       "Jugar": "Jugar" 
+   },
+   "leaderboard": {
+       "titulo": "Puntajes mas altos",
+       "vovler": "Volver"
+   },
+   "login":{
+       "login": "Login",
+       "email": "Ingresa tu Email",
+       "password": "Ingresa tu contraseña",
+       "ingresar": "Ingresar", 
+       "registro": "¿Aún no tienes cuenta?",
+       "how_to_play": "¿Como se juega?",
+       "leaderboard": "Puntajes mas altos",
+       "invitado": "Jugar como invitado"
+   },
+   "register":{
+       "titulo": "Registrate",
+       "nombre_de_usuario": "Nombre de usuario",
+       "email": "Ingresa tu Email",
+       "password": "Ingresa tu Contraseña",
+       "confirmacion_password": "Confirma tu Contraseña",
+       "enter": "Registrarme",
+       "vovler": "Volver"
+   }
+}
