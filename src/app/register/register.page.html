@@ -1,29 +1,29 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Registrate</ion-title>
+    <ion-title>{{'register.titulo' | translate}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-item>
-    <ion-label>Nombre de usuario</ion-label>
+    <ion-label>{{'register.nombre_de_usuario' | translate}}</ion-label>
     <ion-input [(ngModel)]="userInput.username"></ion-input>
   </ion-item>
     <ion-item>
-        <ion-label>Ingresa tu Email</ion-label>
+        <ion-label>{{'register.email' | translate}}</ion-label>
         <ion-input [(ngModel)]="userInput.email"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>Ingresa tu Contraseña</ion-label>
+        <ion-label>{{'register.password' | translate}}</ion-label>
         <ion-input [(ngModel)]="userInput.password"></ion-input>
       </ion-item>
       <ion-item>
-          <ion-label>Confirma tu Contraseña</ion-label>
+          <ion-label>{{'register.confirmacion_password' | translate}}</ion-label>
           <ion-input [(ngModel)]="userInput.passwordConfirm"></ion-input>
         </ion-item>
-  <ion-button expand="block" style="margin-top:30px" (click)="register()">Registrarme</ion-button>
+  <ion-button expand="block" style="margin-top:30px" (click)="register()">{{'register.enter' | translate}}</ion-button>
       
-  <ion-button (click)="goToLogin()">Volver</ion-button>
+  <ion-button (click)="goToLogin()">{{'register.volver' | translate}}</ion-button>
 
 
 </ion-content>

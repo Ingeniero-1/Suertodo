@@ -1,10 +1,9 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Bienvenido al Suertodo!
-    </ion-title>
+      {{'home.bienvenido' | translate}}    </ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="logout()">Logout</ion-button>
+      <ion-button (click)="logout()">{{'home.logout' | translate}}</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -15,7 +14,7 @@
   <ion-list>
     <ion-radio-group [(ngModel)]="radio">
       <ion-list-header>
-        <ion-label>Elige un rango:
+        <ion-label>{{'home.rango' | translate}}
         </ion-label>
       </ion-list-header>
 
@@ -24,7 +23,7 @@
         <ion-radio slot="start" [value]="i"></ion-radio>
       </ion-item>
       <ion-item>
-        <ion-label>Rango Personalizado</ion-label>
+        <ion-label>{{'home.personalizado' | translate}}</ion-label>
         <ion-radio slot="start" value="personalizado"></ion-radio>
       </ion-item>
     </ion-radio-group>
@@ -32,19 +31,19 @@
 
   <div *ngIf="radio=='personalizado'">
     <ion-item lines="full">
-      <ion-label  position="stacked">Decime el numero menor de tu rango:</ion-label>
+      <ion-label  position="stacked">{{'home.menor' | translate}}</ion-label>
       <ion-input placeholder="0" type="number" [(ngModel)]="range.min"></ion-input>
     </ion-item>
 
     <ion-item lines="full">
-      <ion-label  position="stacked">Decime el numero mayor de tu rango:</ion-label>
+      <ion-label  position="stacked">{{'home.mayor' | translate}}</ion-label>
       <ion-input placeholder="0" type="number" [(ngModel)]="range.max"></ion-input>
     </ion-item>
   </div>
 
   
   <ion-item lines="full">
-    <ion-label position="stacked">Elegi un numero en ese Rango!</ion-label>
+    <ion-label position="stacked">{{'home.numero_rango' | translate}}</ion-label>
     <ion-input placeholder="0" type="number" [(ngModel)]="userInput" (ionChange)="checkInteger(userInput)"></ion-input>
   </ion-item>
 
@@ -53,7 +52,7 @@
 
   <!-- <button (click)="verPuntos()">Ver puntos</button> -->
   <ion-button expand="block" fill="solid" type="round" color="secondary" size="large" (click)="play()"
-    style="margin-top:20px">Jugar!</ion-button>
+    style="margin-top:20px">{{'home.jugar' | translate}}</ion-button>
  
 
 

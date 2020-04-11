@@ -11,7 +11,7 @@
     },
    "graficos":{
        "titulo_graficos": "Explicacion Grafica",
-       "Jugar": "Jugar" 
+       "jugar": "Jugar" 
    },
    "home":{
        "bienvenido": "Bienvenido al Suertodo!",
@@ -21,11 +21,11 @@
        "menor": "Decime el numero menor de tu rango:",
        "mayor": "Decime el numero mayor de tu rango:",
        "numero_rango": "Elegi un numero en ese Rango!",
-       "Jugar": "Jugar" 
+       "jugar": "Jugar" 
    },
    "leaderboard": {
        "titulo": "Puntajes mas altos",
-       "vovler": "Volver"
+       "volver": "Volver"
    },
    "login":{
        "login": "Login",
@@ -44,6 +44,6 @@
        "password": "Ingresa tu Contraseña",
        "confirmacion_password": "Confirma tu Contraseña",
        "enter": "Registrarme",
-       "vovler": "Volver"
+       "volver": "Volver"
    }
 }
