@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
-import { NavController } from '@ionic/angular';
+import { NavController, AlertController } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -9,7 +11,16 @@ import { NavController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
   public userInput = { email: "", password: "" };
-  constructor(public navCtrl: NavController) { }
+  public currentLang: any = null;
+
+  constructor(public navCtrl: NavController, public alertController: AlertController, public storage: Storage, public translateService:TranslateService) {
+    this.storage.get('lang').then((val) => {
+      if (val) {
+        this.currentLang = val;
+      }
+    });
+
+  }
 
   ngOnInit() {
   }
@@ -18,8 +29,8 @@ export class LoginPage implements OnInit {
       alert(error.message);
     })
   }
-  anoLogin(){
-    firebase.auth().signInAnonymously().catch(err=>{
+  anoLogin() {
+    firebase.auth().signInAnonymously().catch(err => {
       alert(err.message);
     })
   }
@@ -31,6 +42,51 @@ export class LoginPage implements OnInit {
   }
   goToLeaderboard() {
     this.navCtrl.navigateRoot('leaderboard');
+  }
+
+  changeLang() {
+
+    this.alertController.create({
+      inputs: [
+        {
+          name: 'radio1',
+          type: 'radio',
+          label: 'English',
+          value: 'en',
+          checked: this.currentLang == 'en' ? true : false
+
+        },
+        {
+          name: 'radio2',
+          type: 'radio',
+          label: 'Español',
+          value: 'es',
+          checked: this.currentLang == 'es' ? true : false
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Confirm Cancel');
+          }
+        }, {
+          text: 'Ok',
+          handler: (data) => {
+            this.storage.set('lang', data);
+            this.currentLang = data;
+            this.translateService.setDefaultLang(data);
+            this.translateService.use(data);
+            console.log('Confirm Ok');
+          }
+        }
+      ]
+    }).then(alerta => {
+      alerta.present();
+    });
+
   }
 
 }

@@ -10,7 +10,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-export function HttpLoaderFactory(http: HttpClient) {
+import { IonicStorageModule } from '@ionic/storage';
+export function httpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
@@ -37,21 +38,23 @@ firebase.initializeApp(firebaseConfig);
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, 
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
+        useFactory: (httpLoaderFactory),
         deps: [HttpClient]
       }
-    })],
+    }),
+    IonicStorageModule.forRoot()],
+
   providers: [
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    
+
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

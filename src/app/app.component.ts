@@ -6,6 +6,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
+import { TranslateService } from '@ngx-translate/core';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-root',
@@ -14,14 +16,16 @@ import 'firebase/firestore';
 })
 export class AppComponent {
 
-  public db  = firebase.firestore();
+  public db = firebase.firestore();
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     public navCtrl: NavController,
-    public ngZone: NgZone
+    public ngZone: NgZone,
+    public translateService: TranslateService,
+    public storage: Storage
   ) {
     this.initializeApp();
     this.checkState();
@@ -29,6 +33,22 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
+      this.storage.get('lang').then((val) => {
+        if (val) {
+          console.log(val);
+          this.translateService.setDefaultLang(val);
+          this.translateService.use(val);
+        } else {
+          console.log("no hay idioma");
+          this.storage.set('lang','en');
+          this.translateService.setDefaultLang('en');
+          this.translateService.use('en');
+        }
+      });
+
+
+
+
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
@@ -38,7 +58,7 @@ export class AppComponent {
       if (user) {
         this.ngZone.run(() => {
           // User is signed in.
-          
+
           this.navCtrl.navigateRoot('home');
 
 
@@ -54,9 +74,9 @@ export class AppComponent {
         })
 
       } else {
-        this.ngZone.run(()=>{
-        // No user is signed in.
-        this.navCtrl.navigateRoot('login');
+        this.ngZone.run(() => {
+          // No user is signed in.
+          this.navCtrl.navigateRoot('login');
         })
 
       }

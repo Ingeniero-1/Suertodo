@@ -1,23 +1,34 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Login</ion-title>
+    <ion-button slot="end" fill="clear" (click)="changeLang()">
+      <!-- esta opcion es para utilizar un pequeño label -->
+      <!-- comentar la siguiente linea en caso de ser necesario -->
+      <ion-label class="ion-text-lowercase"><p>{{currentLang}}</p></ion-label>
+      <ion-icon slot="end" name="globe" color="primary"></ion-icon>
+
+      <!-- esta opcion permite utilizar solo el icono -->
+      <!-- descomentar la siguiente linea en caso de ser necesario -->
+      <!-- <ion-icon slot="icon-only" name="globe" color="primary"></ion-icon> -->
+    </ion-button>
+    
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-item>
-    <ion-label>Ingresa tu Email</ion-label>
+    <ion-label>{{'login.email' | translate}}</ion-label>
     <ion-input type="email" [(ngModel)]="userInput.email"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label>Ingresa tu contraseña</ion-label>
+    <ion-label>{{'login.password' | translate}}</ion-label>
     <ion-input type="password" [(ngModel)]="userInput.password"></ion-input>
   </ion-item>
 
   <a></a>
-  <ion-button expand="block" style="margin-top:20px;" (click)="login()">Ingresar</ion-button>
+  <ion-button expand="block" style="margin-top:20px;" (click)="login()">{{'login.ingresar' | translate}}</ion-button>
   <ion-button fill="outline" expand="block" style="margin-top:20px;" (click)="goToRegister()">{{'login.registro' | translate}}</ion-button>
-  <ion-button expand="block" style="margin-top:20px;" (click)="FAQs()">Como se juega?</ion-button>
-  <ion-button fill="outline" expand="block" style="margin-top:20px;" (click)="goToLeaderboard()">Ver puntajes mas altos</ion-button>
-  <ion-button fill="clear" expand="block" style="margin-top:20px;" (click)="anoLogin()">Entrar como invitado</ion-button>
+  <ion-button expand="block" style="margin-top:20px;" (click)="FAQs()">{{'login.how_to_play' | translate}}</ion-button>
+  <ion-button fill="outline" expand="block" style="margin-top:20px;" (click)="goToLeaderboard()">{{'login.leaderboard' | translate}}</ion-button>
+  <ion-button fill="clear" expand="block" style="margin-top:20px;" (click)="anoLogin()">{{'login.invitado' | translate}}</ion-button>
 </ion-content>
