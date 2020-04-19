@@ -2,6 +2,7 @@ import { Component, NgZone } from '@angular/core';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -22,8 +23,7 @@ export class HomePage {
   public radio;
   public db = firebase.firestore();
 
-  constructor(public ngZone:NgZone) {
-
+  constructor(public ngZone:NgZone, public translate:TranslateService){
     this.ngZone.run(()=>{
       this.rangeArray = [
         { min: 1, max: 10 },
@@ -51,7 +51,9 @@ export class HomePage {
 
 
     if (this.radio == null) {
-      alert("Rango no valido.")
+      this.translate.get('home.rango_invalido').subscribe(data=>{
+        alert(data)
+        })
       return null;
     }
     if (this.radio != "personalizado") {
@@ -59,22 +61,30 @@ export class HomePage {
     }
 
     if (this.range.min >= this.range.max) {
-      alert("El minimo no puede ser mas grande que el maximo");
+      this.translate.get('home.mayor_menor').subscribe(data=>{
+        alert(data)
+        })
       return null;
     }
 
     if (this.userInput < this.range.min || this.userInput > this.range.max) {
-      alert("Tu numero esta fuera del rango.");
-      return null;
+      this.translate.get('home.fuera_de_rango').subscribe(data=>{
+        alert(data)
+        })      
+        return null;
     }
 
     if (this.quantityPerDay >= 3) {
-      alert("Ya jugaste 3 veces! Buena suerte Mañana!");
+      this.translate.get('home.tres_intentos').subscribe(data=>{
+        alert(data)
+        })
       return null;
     }
 
     if ((this.range.max - this.range.min) < 9) {
-      alert("El rango minimo debe ser de 10 numeros");
+      this.translate.get('home.diez_numeros').subscribe(data=>{
+        alert(data)
+        })
       return null;
     }
 
@@ -83,19 +93,25 @@ export class HomePage {
     if (this.quantityPerDay < 3) {
       this.quantityPerDay += 1;
       if (this.userInput == random) {
-        alert("El numero generado es " + random + ", y tu numero es " + this.userInput + ": GANASTE!");
-        this.quantityWins = +1;
+        this.translate.get('home.ganador', {random: random}).subscribe((res: string) => {
+          alert(res);
+      });
+          this.quantityWins = +1;
         this.puntosTotales = + this.range.max - this.range.min + 1;
       }
       else {
-        alert("El numero generado es " + random + ", y tu numero es " + this.userInput + ": Perdiste!");
+        this.translate.get('home.perdedor', {random: random, userInput: this.userInput}).subscribe((res: string) => {
+          alert(res);
+      });     
       }
       if (this.quantityPerDay == 3) {
-        alert("Tus puntos totales son: " + this.puntosTotales);
+        this.translate.get('home.totales', {puntosTotales: this.puntosTotales}).subscribe((res: string) => {
+        alert(res);
         this.enviarDatos(this.puntosTotales);
-      }
+      })}
     }
   }
+  
   logout() {
     firebase.auth().signOut();
   }

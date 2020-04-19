@@ -21,7 +21,16 @@
        "menor": "Choose the lower number of your range",
        "mayor": "Choose the higher number of your range",
        "numero_rango": "Pick a number in that range",
-       "jugar": "Play" 
+       "jugar": "Play",
+       "rango_invalido": "Invalid range!",
+       "fuera_de_rango": "Your number isn't in your range!",
+       "mayor_menor": "Your lower number can't be higher than your highest one!",
+       "diez_numeros": "Your range must be of at least 10 numbers!",
+       "tres_intentos": "You already played 3 times today, Better luck tomorrow!",
+       "ganador": "The random number is {{random}}, You win!",
+       "perdedor": "The random number is {{random}}, but you guessed {{userInput}}: You lose!",
+       "totales": "Today you got {{puntosTotales}} points."
+
    },
    "leaderboard": {
        "titulo": "Highscores",

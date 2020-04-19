@@ -21,7 +21,16 @@
        "menor": "Decime el numero menor de tu rango:",
        "mayor": "Decime el numero mayor de tu rango:",
        "numero_rango": "Elegi un numero en ese Rango!",
-       "jugar": "Jugar" 
+       "jugar": "Jugar",
+       "rango_invalido": "Rango invalido!",
+       "fuera_de_rango": "Tu numero no esta en tu rango!",
+       "mayor_menor": "El numero menor de tu rango no puede ser mayor a su mayor.",
+       "diez_numeros": "Tu rango debe ser de al menos 10 numeros!",
+       "tres_intentos": "Ya jugaste 3 veces hoy. Mejor suerte mañana!",
+       "ganador": "El numero generado es  {{random}}: GANASTE!",
+       "perdedor": "El numero generado es  {{random}}, y tu numero es {{userInput}}: Perdiste!",
+       "totales": "Tus puntos totales son: {{puntosTotales}}."
+
    },
    "leaderboard": {
        "titulo": "Puntajes mas altos",
