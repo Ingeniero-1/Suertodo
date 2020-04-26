@@ -53,6 +53,8 @@
        "password": "Ingresa tu Contraseña",
        "confirmacion_password": "Confirma tu Contraseña",
        "enter": "Registrarme",
-       "volver": "Volver"
+       "volver": "Volver",
+       "pass_iguales": "Las Contraseñas deben coincidir!",
+       "error_datos": "Ha ocurrido un error al cargar los datos. Intente nuevamente mas tarde."
    }
 }

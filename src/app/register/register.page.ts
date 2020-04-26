@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase/app';
 import { NavController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 import 'firebase/auth';
 import 'firebase/firestore';
 
@@ -12,14 +13,16 @@ import 'firebase/firestore';
 export class RegisterPage implements OnInit {
   public userInput={email:"",password:"",passwordConfirm:"", username:""};
   public db = firebase.firestore();
-  constructor(public navCtrl:NavController) { }
+  constructor(public navCtrl:NavController, public translate:TranslateService) { }
 
   ngOnInit() {
   }
 
   register(){
     if (this.userInput.password!=this.userInput.passwordConfirm){
-      alert("Las contraseñas no coinciden.");
+      this.translate.get('register.pass_iguales').subscribe(data=>{
+        alert(data)
+        })
       return null;
     }
     firebase.auth().createUserWithEmailAndPassword(this.userInput.email, this.userInput.password).catch((error)=>{

@@ -29,6 +29,7 @@ export class LeaderboardPage implements OnInit {
       })
       this.ngZone.run(()=>{
         this.users=auArray;
+        console.log(this.users);
         this.loaded=true
       })
       

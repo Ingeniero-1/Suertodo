@@ -7,21 +7,17 @@
   <ion-label></ion-label>
 </ion-item> -->
 
-
-
-
-
 <ion-content>
   <div style="width:100%;text-align:center" *ngIf='!loaded'><ion-spinner  style='margin-top:30px'></ion-spinner></div>
-  
-  <ion-item *ngFor='let user of users' lines='full'>
-  <ion-label>
-    <h3>{{user.email}}</h3>
-  </ion-label>
-  <ion-label slot='end'>
-  <h2 style="text-align: right;"><b>{{user.score}}</b></h2>
-  </ion-label>
-  </ion-item>
-
+    <div *ngFor='let user of users' lines='full'>
+      <ion-item *ngIf="user.email">
+        <ion-label>
+            <h3>{{user.email}}</h3>
+        </ion-label>
+        <ion-label slot='end'>
+            <h2 style="text-align: right;"><b>{{user.score}}</b></h2>
+        </ion-label>
+      </ion-item>
+    </div>
   <ion-button size='block' style="margin-top:30px" (click)="goToLogin()">{{'leaderboard.volver' | translate}}</ion-button>
 </ion-content>
